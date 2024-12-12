@@ -252,9 +252,9 @@ public class HexByteChar2
       else if (word.startsWith("-u") || (mswinFlag && word.startsWith("/u")))
       {
         /* This option is followed by a font point size that will be used for
-        buttons, dialogs, labels, etc. */
+        GUI buttons, dialogs, labels, etc. */
 
-        try                       // try to parse remainder as unsigned integer
+        try                       // try to parse remainder as an integer
         {
           commonFontSize = Integer.parseInt(word.substring(2));
         }
@@ -269,8 +269,8 @@ public class HexByteChar2
           showHelp();             // show help summary
           System.exit(EXIT_FAILURE); // exit application after printing help
         }
-        byteFontSize = (int) Math.round(1.00 * commonFontSize); // same
-        outputFontSize = (int) Math.round(1.04 * commonFontSize); // increase
+        byteFontSize = (int) Math.round(commonFontSize * 1.00); // same
+        outputFontSize = (int) Math.round(commonFontSize * 1.04); // increase
       }
 
       else if (word.startsWith("-w") || (mswinFlag && word.startsWith("/w")))
